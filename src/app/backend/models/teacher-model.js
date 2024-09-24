@@ -1,29 +1,36 @@
-// src/models/teacher.js
-const Sequelize = require('sequelize');
+// models/teacher.js
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const Teacher = sequelize.define('teacher', {
-  id: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    primaryKey: true,
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  email: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
+class Teacher extends Model {}
+
+Teacher.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-});
+  {
+    sequelize,
+    modelName: 'Teacher',
+    tableName: 'teachers',
+    timestamps: true, // Enables createdAt and updatedAt fields
+  }
+);
 
 module.exports = Teacher;
