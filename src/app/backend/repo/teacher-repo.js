@@ -1,58 +1,29 @@
-const db = require('./../config/db');
+const Teacher = require('../models/teacher-model');
 
 // Отримати всі записи (Read)
-const getAllTeachers = (callback) => {
-  const sql = 'SELECT * FROM teacher';
-  db.query(sql, (err, result) => {
-    if (err) {
-      return callback(err, null);
-    }
-    callback(null, result);
-  });
+const getAllTeachers = async () => {
+  return await Teacher.findAll();
 };
 
 // Отримати одного вчителя за ID (Read)
-const getTeacherById = (id, callback) => {
-  const sql = 'SELECT * FROM teacher WHERE id = ?';
-  db.query(sql, [id], (err, result) => {
-    if (err) {
-      return callback(err, null);
-    }
-    callback(null, result[0]);
-  });
+const getTeacherById = async (id) => {
+  return await Teacher.findByPk(id);
 };
 
 // Додати нового вчителя (Create)
-const addTeacher = (teacherData, callback) => {
-  const sql = 'INSERT INTO teacher (name, email, password) VALUES (?, ?, ?)';
-  db.query(sql, [teacherData.name, teacherData.email, teacherData.password], (err, result) => {
-    if (err) {
-      return callback(err, null);
-    }
-    callback(null, result);
-  });
+const addTeacher = async (teacherData) => {
+  return await Teacher.create(teacherData);
 };
 
 // Оновити інформацію про вчителя (Update)
-const updateTeacher = (id, teacherData, callback) => {
-  const sql = 'UPDATE teacher SET name = ?, email = ?, password = ? WHERE id = ?';
-  db.query(sql, [teacherData.name, teacherData.email, teacherData.password, id], (err, result) => {
-    if (err) {
-      return callback(err, null);
-    }
-    callback(null, result);
-  });
+const updateTeacher = async (id, teacherData) => {
+  const [updated] = await Teacher.update(teacherData, { where: { id } });
+  return updated ? await Teacher.findByPk(id) : null;
 };
 
 // Видалити вчителя (Delete)
-const deleteTeacher = (id, callback) => {
-  const sql = 'DELETE FROM teacher WHERE id = ?';
-  db.query(sql, [id], (err, result) => {
-    if (err) {
-      return callback(err, null);
-    }
-    callback(null, result);
-  });
+const deleteTeacher = async (id) => {
+  return await Teacher.destroy({ where: { id } });
 };
 
 module.exports = {
@@ -60,5 +31,5 @@ module.exports = {
   getTeacherById,
   addTeacher,
   updateTeacher,
-  deleteTeacher
+  deleteTeacher,
 };

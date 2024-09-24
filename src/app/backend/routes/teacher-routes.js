@@ -1,72 +1,15 @@
-// src/routes/user.js
-
 const express = require('express');
 const router = express.Router();
-const Teacher = require('../models/teacher-model');
+const teacherController = require('../controllers/teacherController');
 
-// Create a new user
-router.post('/', async (req, res) => {
-  try {
-    const teacher = await Teacher.create(req.body);
-    res.json(teacher);
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to create teacher.' });
-  }
-});
+router.post('/', teacherController.addTeacher);
 
-// Get all users
-router.get('/', async (req, res) => {
-  try {
-    const teachers = await Teacher.findAll();
-    res.json(teachers);
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to fetch teachers.' });
-  }
-});
+router.get('/', teacherController.getAllTeachers);
 
-// Get user by ID
-router.get('/:id', async (req, res) => {
-  try {
-    const teacher = await Teacher.findByPk(req.params.id);
-    if (!teacher) {
-      res.status(404).json({ message: 'Teacher not found.' });
-    } else {
-      res.json(teacher);
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to fetch teacher.' });
-  }
-});
+router.get('/:id', teacherController.getTeacherById);
 
-// Update user by ID
-router.put('/:id', async (req, res) => {
-  try {
-    const [updatedRowsCount] = await Teacher.update(req.body, {
-      where: { id: req.params.id }
-    });
-    if (updatedRowsCount === 0) {
-      res.status(404).json({ message: 'Teacher not found.' });
-    } else {
-      const teacher = await Teacher.findByPk(req.params.id);
-      res.json(teacher);
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to update teacher.' });
-  }
-});
+router.put('/:id', teacherController.updateTeacher);
 
-// Delete user by ID
-router.delete('/:id', async (req, res) => {
-  try {
-    const deletedRowsCount = await Teacher.destroy({ where: { id: req.params.id } });
-    if (deletedRowsCount === 0) {
-      res.status(404).json({ message: 'Teacher not found.' });
-    } else {
-      res.json({ message: 'Teacher deleted successfully.' });
-    }
-  } catch (error) {
-    res.status(500).json({ message: 'Failed to delete teacher.' });
-  }
-});
+router.delete('/:id', teacherController.deleteTeacher);
 
 module.exports = router;
