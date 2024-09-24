@@ -1,0 +1,123 @@
+.header{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+pages-header{
+  width: 50%;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 55px;
+}
+
+.space-between-buttons{
+  margin-right: 10px;
+}
+
+.teacher-container{
+  display: flex;
+  overflow: hidden;
+  height: 89.7vh;
+}
+
+.scenery{
+  width: 20%;
+  height: 71vh;
+  position: relative;
+  display: flex;
+}
+
+.pink-ball{
+  height: 220px;
+  width: 220px;
+  position: absolute;
+  top: 70px;
+  right: 180px;
+}
+
+.green-ball{
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  bottom: 190px;
+  left: 980px;
+}
+
+.content{
+  width: 60%;
+}
+
+.teacher-icon{
+  height: 200px;
+  width: 200px;
+}
+
+.teacher-data{
+  margin-left: 30px;
+}
+
+.icon-and-teacher-name{
+  display: flex;
+  align-items: center;
+}
+
+.second-title-lin{
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.tabs{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.tab{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px 10px 20px;
+  position: relative;
+}
+
+.tab-icon{
+  height: 50px;
+  width: 50px;
+  margin-right: 7px;
+}
+
+.tab-title{
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.tab:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 60%;
+  width: 3px;
+  background-color: #A89F9F;
+}
+
+.tab.active .tab-title {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+hr {
+  margin: 0 auto;
+  border: 2px solid #A89F9F;
+  width: 80%;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3);
+}
+

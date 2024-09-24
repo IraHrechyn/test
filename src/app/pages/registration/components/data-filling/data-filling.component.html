@@ -1,0 +1,41 @@
+<pages-header></pages-header>
+<div class="data-filling">
+  <div class="title">
+    <p class="first-title-line">Заповніть наступні поля</p>
+    <p class="second-title-line">Уважно перевіряйте внесені дані</p>
+  </div>
+
+  <div class="content">
+    <div class="scenery">
+      <img class="green-ball" src="assets/green-ball.png" alt="green-ball"/>
+    </div>
+
+    <div class="data-filling-form">
+      <div class="form-content container-border">
+       <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="name">Введіть Ваше прізвище та ім'я</label>
+            <input type="text" id="name" name="name" ngModel required class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Введіть Ваш email</label>
+            <input type="email" id="email" name="email" ngModel required class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Введіть Ваш пароль (має містити не менше 6 символів)</label>
+            <input type="password" id="password" name="password" ngModel required minlength="6" class="form-input">
+          </div>
+
+         <button [routerLink]="'/app-teacher'" type="submit" class="filled-button">Увійти</button>
+
+       </form>
+      </div>
+    </div>
+
+    <div class="scenery">
+      <img class="pink-ball" src="assets/pink-ball.png" alt="pink-ball"/>
+    </div>
+  </div>
+</div>

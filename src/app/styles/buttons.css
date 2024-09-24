@@ -1,0 +1,17 @@
+.filled-button{
+  background: #2F2F2F;
+  color: #FFFCFC;
+  text-align: center;
+  width: 150px;
+  height: 25px;
+  border-radius: 6px;
+}
+
+.empty-button{
+  background: #FFFCFC;
+  text-align: center;
+  width: 120px;
+  height: 25px;
+  border: 3px #2F2F2F solid;
+  border-radius: 6px;
+}

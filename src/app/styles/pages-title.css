@@ -1,0 +1,15 @@
+.title{
+  margin-top: 30px;
+  text-align: center;
+}
+
+.first-title-line{
+  font-weight: 750;
+  font-size: 30px;
+}
+
+.second-title-line{
+  font-weight: 650;
+  font-size: 18px;
+  margin-top: 5px;
+}

@@ -1,0 +1,45 @@
+<div class="header">
+  <pages-header></pages-header>
+  <div class="buttons">
+    <button class="filled-button space-between-buttons" (click)="toggleSettings()">Налаштування</button>
+    <button [routerLink]="'/main-page'" class="empty-button">Вийти</button>
+  </div>
+</div>
+<div class="teacher-container">
+    <div class="scenery">
+      <img class="pink-ball" src="assets/pink-ball.png" alt="pink-ball"/>
+    </div>
+    <div class="content">
+      <div class="icon-and-teacher-name">
+        <img class="teacher-icon" src="assets/icon.png" alt="teacher-icon">
+        <div class="teacher-data">
+          <p class="first-title-line">{{teacherName}}</p>
+          <p class="second-title-lin ">Кількість предметів: {{subjectCount}}</p>
+        </div>
+      </div>
+      <div class="tabs">
+        <div class="tab" [class.active]="selectedTab === 'subjects'" (click)="selectTab('subjects')">
+          <img class="tab-icon" src="assets/subjects.png" alt="subjects">
+          <p class="tab-title">Предмети</p>
+        </div>
+
+        <div class="tab" [class.active]="selectedTab === 'groups'" (click)="selectTab('groups')">
+          <img class="tab-icon" src="assets/groups.png" alt="groups">
+          <p class="tab-title">Групи</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="tab-content">
+        <app-subjects *ngIf="selectedTab === 'subjects'"></app-subjects>
+        <app-groups *ngIf="selectedTab === 'groups'"></app-groups>
+      </div>
+
+      <div class="scenery">
+      <img class="green-ball" src="assets/green-ball.png" alt="green-ball"/>
+    </div>
+  </div>
+  <app-settings *ngIf="showSettings"></app-settings>
+</div>
+

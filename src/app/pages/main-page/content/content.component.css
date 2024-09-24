@@ -1,0 +1,60 @@
+.content-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 75px);
+  overflow: hidden;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  margin-left: 11%;
+  margin-top: 10%;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 100px;
+}
+
+.description {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.scenery {
+  display: flex;
+  width: 50%;
+  position: relative;
+}
+
+.buttons{
+  margin-top: 15px;
+}
+
+.distance{
+  margin-right: 10px;
+}
+
+/*----------DECORATIONS--------------*/
+
+.pink-ball {
+  position: absolute;
+  height: 560px;
+  width: 560px;
+  margin-top: 6%;
+  margin-left: 200px;
+  z-index: 1;
+}
+
+.green-ball {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  top: 63%;
+  left: 110px;
+  z-index: 2;
+}

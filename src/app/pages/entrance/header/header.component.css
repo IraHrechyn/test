@@ -1,0 +1,7 @@
+.header-container{
+  display: flex;
+  background: #FFFCFC;
+  height: 75px;
+  width: 100%;
+  align-items: center;
+}

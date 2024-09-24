@@ -1,0 +1,36 @@
+<div class="entrance-container">
+  <pages-header></pages-header>
+
+  <div class="title">
+    <p class="first-title-line">Вітання!</p>
+    <p class="second-title-line">Внесіть Ваші дані, щоб продовжити</p>
+  </div>
+
+  <div class="content">
+    <div class="scenery">
+      <img class="pink-ball" src="assets/pink-ball.png" alt="pink-ball"/>
+    </div>
+
+    <div class="entrance-form">
+      <div class="entrance-form-content container-border">
+        <form>
+          <div class="form-group">
+            <label for="name">Введіть Ваше прізвище та ім'я</label>
+            <input type="text" id="name" name="name" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Введіть Ваш пароль</label>
+            <input type="password" id="password" name="password" class="form-input">
+          </div>
+
+          <button [routerLink]="'/app-teacher'" type="submit" class="filled-button">Увійти</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="scenery">
+      <img class="green-ball" src="assets/green-ball.png" alt="green-ball"/>\
+    </div>
+  </div>
+</div>

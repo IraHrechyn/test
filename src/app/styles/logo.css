@@ -1,0 +1,7 @@
+.logo{
+  display: flex;
+  height: 40px;
+  width: auto;
+  align-items: center;
+  margin-left: 55px;
+}

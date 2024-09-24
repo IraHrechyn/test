@@ -1,0 +1,43 @@
+<pages-header></pages-header>
+<div class="registration-container">
+
+  <div class="title">
+    <p class="first-title-line">Вітання!</p>
+    <p class="second-title-line">Вкажіть, будь ласка, Вашу роль</p>
+  </div>
+  <div class="content">
+    <div class="scenery">
+      <img class="green-ball" src="assets/green-ball.png" alt="green-ball"/>\
+    </div>
+
+    <div class="registration-form">
+      <div class="role">
+        <div
+          class="role-option container-border"
+          [class.active]="data.role.selectedRole === getRoleById('teacher')"
+          (click)="selectRole('teacher')">
+          <img src="assets/teacher.png" alt="teacher">
+          <p class="card-title">Викладач</p>
+        </div>
+        <div
+          class="role-option container-border"
+          [class.active]="data.role.selectedRole === getRoleById('student')"
+          (click)="selectRole('student')">
+          <img src="assets/student.png" alt="student">
+          <p class="card-title">Студент</p>
+        </div>
+      </div>
+      <button
+        class="continue-button filled-button"
+        [routerLink]="data.role.selectedRole ? '/data-filling' : null"
+        [disabled]="!data.role.selectedRole">
+        Далі
+      </button>
+
+    </div>
+
+    <div class="scenery">
+      <img class="pink-ball" src="assets/pink-ball.png" alt="pink-ball"/>
+    </div>
+  </div>
+</div>
