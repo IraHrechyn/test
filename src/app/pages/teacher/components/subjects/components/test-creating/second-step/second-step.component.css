@@ -1,0 +1,187 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  padding: 20px;
+  text-align: left;
+}
+
+.content-container {
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.note{
+  font-size: 12px;
+}
+
+.step-title {
+  text-align: left;
+  width: 100%;
+  font-weight: 780;
+}
+
+.test-wrapper {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.question-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.question-number {
+  font-size: 12px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.question-section input{
+  width: 300px;
+}
+
+.question-section select{
+  width: 200px;
+}
+
+.question-section input,
+.question-section select {
+  padding: 5px;
+  font-size: 12px;
+
+}
+
+.answers-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 30px 0 0 30px;
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.answer input[type="text"] {
+  width: 220px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.answer-checkbox,
+.answer-radio {
+  width: 20px;
+  height: 20px;
+  border: 2px #2f2f2f solid;
+}
+
+.add-answer-btn {
+  background-color: #2f2f2f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 3px #2f2f2f solid;
+  border-radius: 50%;
+  font-size: 24px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 10px 0 0 30px;
+}
+
+
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.back-button,
+.next-button {
+  margin-left: 10px;
+}
+
+.border{
+  border: 3px #2f2f2f solid;
+  border-radius: 4px;
+  padding: 0;
+}
+
+/* Сховати стандартний чекбокс */
+.answer-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2f2f2f;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Стилізувати чекбокс при наведенні */
+.answer-checkbox:hover {
+  background-color: #2f2f2f;
+}
+
+/* Стилізувати активний чекбокс */
+.answer-checkbox:checked {
+  background-color: #2f2f2f;
+  border-color: #fff;
+}
+
+/* Сховати стандартний вигляд радіокнопки */
+.answer-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2f2f2f;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Стилізувати радіокнопку при наведенні */
+.answer-radio:hover {
+  background-color: #2f2f2f;
+}
+
+/* Стилізувати активну радіокнопку */
+.answer-radio:checked {
+  background-color: #2f2f2f;
+  border-color: #fff;
+}
+
+.button-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-question{
+  width: 280px !important;
+  margin-top: 20px;
+}

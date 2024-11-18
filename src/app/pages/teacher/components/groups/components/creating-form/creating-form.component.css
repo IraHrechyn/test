@@ -1,0 +1,121 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  width: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.input-title {
+  font-size: 13px;
+  font-weight: 500;
+  margin: 5px;
+}
+
+.student-name {
+  font-size: 13px;
+  font-weight: 400;
+  flex: 1; /* Додає гнучкість для вирівнювання між іменем та кнопкою */
+}
+
+input[type="text"] {
+  margin-top: 2px;
+  padding: 5px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.autocomplete {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 82%;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 8px;
+}
+
+.autocomplete div {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.autocomplete div:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.selected-students {
+  width: 82%;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.students-list {
+  max-height: 150px; /* Максимальна висота блоку з вибраними студентами */
+  overflow-y: auto;  /* Додає вертикальний скрол */
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  position: relative; /* Потрібно для стилізації скролу */
+}
+
+/* Якщо список порожній */
+.empty-message {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+}
+
+/* Вирівнювання імені та кнопки */
+.students-list div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.students-list div:hover {
+  background-color: #f0f0f0;
+}
+
+/* Стиль для скролів в обох списках */
+.autocomplete::-webkit-scrollbar,
+.students-list::-webkit-scrollbar {
+  width: 5px; /* Ширина скролу */
+}
+
+.autocomplete::-webkit-scrollbar-thumb,
+.students-list::-webkit-scrollbar-thumb {
+  background-color: #3f3d3d; /* Колір скролу */
+  border-radius: 4px; /* Округлені краї */
+}
+
+.autocomplete::-webkit-scrollbar-thumb:hover,
+.students-list::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa; /* Колір скролу при наведенні */
+}
+

@@ -1,0 +1,41 @@
+<div class="form-container">
+  <div class="close-button" (click)="cancel()">✖</div>
+
+  <div *ngIf="step === 'input'" class="first-step">
+    <p class="input-title">Введіть назву предмету</p>
+    <input type="text" placeholder="Назва предмету" [(ngModel)]="subjectName">
+    <button class="filled-button ok-button" (click)="confirm()">Підтвердити</button>
+  </div>
+
+  <div *ngIf="step === 'confirmation'" class="first-step">
+    <p class="subject-title">{{ subjectName }}</p>
+    <p class="input-title">Бажаєте зразу додати групу/групи до предмету?</p>
+    <div class="button-container">
+      <button (click)="selectNo()" class="empty-button">Ні</button>
+      <button (click)="selectYes()" class="filled-button">Так</button>
+    </div>
+  </div>
+
+
+  <div *ngIf="step === 'addGroups'" class="first-step">
+    <p class="subject-title">{{ subjectName }}</p>
+    <p class="input-title">Виберіть групу/групи:</p>
+
+    <div class="dropdown-wrapper">
+      <select class="dropdown" (change)="addGroup($event)" [ngModel]="'default'">
+        <option *ngFor="let group of groups" [value]="group.id">{{ group.group_name }}</option>
+      </select>
+    </div>
+
+    <div *ngIf="selectedGroups.length > 0" class="list">
+      <ul>
+       <li *ngFor="let groupId of selectedGroups">
+        {{ getGroupName(groupId) }}
+        <button (click)="removeGroup(groupId)" class="empty-button">-</button>
+      </li>
+      </ul>
+    </div>
+
+    <button class="filled-button ok-button" (click)="saveWithSelectedGroups()">Зберегти</button>
+  </div>
+</div>

@@ -34,4 +34,12 @@ export class RoleSelectionComponent {
       console.log( this.data.role.selectedRole);
     }
   }
+
+  routes(){
+    if(this.data.entrance.visibleEntrance){
+      return '/entrance';
+    } else{
+      return '/data-filling';
+    }
+  }
 }

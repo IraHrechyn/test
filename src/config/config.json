@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "postgres",
-    "password": "ТУТ",
+    "password": "new_password",
     "database": "postgres",
     "host": "localhost",
     "dialect": "postgres",
@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "postgres",
-    "password": "ТУТ",
+    "password": "postgres",
     "database": "postgres",
     "host": "localhost",
     "dialect": "postgres",
@@ -17,7 +17,7 @@
   },
   "production": {
     "username": "postgres",
-    "password": "ТУТ",
+    "password": "postgres",
     "database": "postgres",
     "host": "localhost",
     "dialect": "postgres",

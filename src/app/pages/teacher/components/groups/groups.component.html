@@ -1,1 +1,55 @@
-<p>groups works!</p>
+<div class="group-container">
+
+  <div class="blur-background" *ngIf="showForm"></div>
+
+  <div class="form-container">
+    <div class="form">
+      <div class="content" (click)="addGroup()">
+        <img src="assets/add-button.png" alt="add-button">
+        <p>Натисніть, щоб додати групу</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="groups-list">
+    <div *ngFor="let group of groups; index as i" class="group-item"
+         (click)="openGroupPage(group)"
+         [ngStyle]="{'background-color': getBackgroundColor(i)}">
+
+      <div *ngIf="editModeIndex === i; else groupView">
+        <input [(ngModel)]="newGroupName" placeholder="Назва групи" />
+        <button (click)="cancelEdit()" class="empty-button first-button">Скасувати</button>
+        <button (click)="saveGroup()" class="filled-button">Підтвердити</button>
+      </div>
+
+      <ng-template #groupView>
+        <div class="group-header">
+          <h3>{{ group.group_name }}</h3>
+        </div>
+        <ul class="student-list">
+          <li *ngFor="let studentId of group.students_id.slice(0, 3)" >
+            {{ studentService.studentNames(studentId) }}
+          </li>
+          <p class="ect">...</p>
+        </ul>
+
+      </ng-template>
+
+    </div>
+  </div>
+
+  <group-creating-form
+    *ngIf="showForm"
+    (groupCreated)="onCreated($event)"
+    (formClosed)="closeForm()">
+  </group-creating-form>
+
+  <group-details
+    *ngIf="selectedGroupId"
+    [groupId]="selectedGroupId"
+    (close)="closeGroupDetails()"
+    (groupDeleted)="onGroupDeleted($event)">
+  </group-details>
+
+
+</div>

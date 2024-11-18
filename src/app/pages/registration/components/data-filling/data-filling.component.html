@@ -12,7 +12,7 @@
 
     <div class="data-filling-form">
       <div class="form-content container-border">
-       <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
           <div class="form-group">
             <label for="name">Введіть Ваше прізвище та ім'я</label>
             <input type="text" id="name" name="name" ngModel required class="form-input">
@@ -28,7 +28,7 @@
             <input type="password" id="password" name="password" ngModel required minlength="6" class="form-input">
           </div>
 
-         <button [routerLink]="'/app-teacher'" type="submit" class="filled-button">Увійти</button>
+         <button  type="submit" class="filled-button">Зареєструватись</button>
 
        </form>
       </div>

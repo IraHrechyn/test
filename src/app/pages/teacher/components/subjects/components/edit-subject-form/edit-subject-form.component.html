@@ -1,0 +1,32 @@
+<div class="edit-subject-form">
+  <input class="inputs" [(ngModel)]="subjectName" placeholder="Назва предмету" />
+
+  <p class="text">Виберіть групи для предмета:</p>
+  <div class="groups-list">
+    <div *ngFor="let group of availableGroups" class="group-item">
+      <span class="group-name">{{ group.group_name }}</span>
+
+      <div>
+        <button
+          class="check-btn"
+          [ngClass]="{'checked': groupIds.includes(group.id)}"
+          (click)="toggleGroup(group.id, true)"
+        >
+          ✔
+        </button>
+
+        <button
+          class="cross-btn"
+          [ngClass]="{'unchecked': !groupIds.includes(group.id)}"
+          (click)="toggleGroup(group.id, false)"
+        >
+          ✖
+        </button>
+      </div>
+    </div>
+  </div>
+<div class="buttons">
+  <button (click)="cancelEdit()" class="empty-button">Скасувати</button>
+  <button (click)="saveChanges()" class="filled-button">Зберегти</button>
+</div>
+</div>

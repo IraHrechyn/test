@@ -10,8 +10,18 @@
 .empty-button{
   background: #FFFCFC;
   text-align: center;
-  width: 120px;
-  height: 25px;
+  width: 130px;
+  height: 26px;
   border: 3px #2F2F2F solid;
   border-radius: 6px;
+}
+
+.but {
+  width: 23px;
+  height: 23px;
+  background: #FFFCFC;
+  text-align: center;
+  border: 3px #2F2F2F solid;
+  border-radius: 6px;
+  margin: 1px;
 }

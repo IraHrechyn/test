@@ -1,0 +1,28 @@
+<div class="form-container">
+  <div class="close-button" (click)="cancel()">✖</div>
+  <p class="input-title">Введіть назву групи</p>
+  <input type="text" placeholder="Назва групи" [(ngModel)]="groupName">
+
+  <p class="input-title">Пошук студентів</p>
+  <input  type="text" placeholder="Ім'я або email" [(ngModel)]="studentSearchQuery">
+
+  <div class="autocomplete">
+    <div *ngFor="let student of filteredStudents">
+      <span class="student-name">{{ student.full_name }} ({{ student.email }})</span>
+      <button class="but" (click)="addStudent(student)">+</button>
+    </div>
+  </div>
+
+  <div class="selected-students">
+    <p class="input-title">Вибрані студенти</p>
+    <div class="students-list">
+      <div *ngIf="selectedStudents.length === 0" class="empty-message">Ще не вибрано студентів</div>
+      <div *ngFor="let student of selectedStudents">
+        <span class="student-name">{{ student.full_name }} ({{ student.email }})</span>
+        <button class="but" (click)="removeStudent(student)">-</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="filled-button" (click)="confirm()">Підтвердити</button>
+</div>

@@ -1,0 +1,72 @@
+<div class="container">
+  <p class="step-title">Крок 2. Заповнення питаннями</p>
+
+  <div class="content-container">
+    <p class="note">* зразу позначайте правильні відповіді</p>
+
+    <div *ngFor="let test of tests; let i = index" class="test-wrapper">
+      <div class="question-section">
+        <span class="question-number">{{ i + 1 }}.</span>
+        <input class="border" type="text" [(ngModel)]="test.name" placeholder="Введіть питання до тесту" />
+        <select class="border" [(ngModel)]="test.type" (change)="onTestTypeChange($event, i)">
+          <option value="single">Відповідь з одним варіантом</option>
+          <option value="multiple">Відповідь з декількома варіантами</option>
+          <option value="open">Відкрита відповідь</option>
+        </select>
+      </div>
+
+      <!-- Відповіді для типів "single" та "multiple" -->
+      <div class="answers-section" *ngIf="test.type !== 'open'">
+        <div *ngFor="let answer of test.answers; let j = index; trackBy: trackByIndex" class="answer">
+          <div *ngIf="test.type === 'multiple'">
+            <!-- Checkbox для типу "multiple" -->
+            <input
+              type="checkbox"
+              [(ngModel)]="test.correctAnswers[j]"
+              class="answer-checkbox border"
+            />
+          </div>
+
+          <div *ngIf="test.type === 'single'">
+            <!-- Radio button для типу "single" -->
+            <input
+              type="radio"
+              name="correctAnswer{{i}}"
+              [(ngModel)]="tests[i].correctAnswer"
+              [value]="j"
+              class="answer-radio border"
+            />
+          </div>
+
+          <!-- Введення варіанту відповіді -->
+          <input
+            class="border"
+            type="text"
+            [(ngModel)]="test.answers[j]"
+            placeholder="Введіть варіант відповіді"
+          />
+        </div>
+        <button (click)="addMoreAnswers(i)" class="add-answer-btn">+</button>
+      </div>
+
+      <!-- Відкрита відповідь -->
+      <div *ngIf="test.type === 'open'" class="open-answer">
+        <input class="border" type="text" [(ngModel)]="test.answers[0]" placeholder="Введіть відповідь" />
+      </div>
+    </div>
+
+    <div class="button-row">
+      <button class="empty-button add-question" (click)="addQuestion()">Створити нове запитання</button>
+
+      <div class="buttons" *ngIf="!isEditing">
+        <button class="back-button empty-button" (click)="goBack()">Назад</button>
+        <button class="next-button filled-button" (click)="saveTest()">Збереги тест</button>
+      </div>
+
+      <div class="buttons" *ngIf="isEditing">
+        <button class="back-button empty-button" (click)="cancel()">Скасувати</button>
+        <button class="next-button filled-button" (click)="saveEditedTest()">Зберегти відредагований тест</button>
+      </div>
+    </div>
+  </div>
+</div>

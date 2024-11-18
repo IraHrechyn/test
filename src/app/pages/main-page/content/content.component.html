@@ -3,7 +3,7 @@
       <h1 class="title">EduTest</h1>
       <p class="description">перевіряй знання ефективно</p>
       <div class="buttons">
-        <button class="distance empty-button" [routerLink]="'/entrance'" >Увійти</button>
+        <button class="distance empty-button" (click)="setVisible()"  [routerLink]="'/role-selection'" >Увійти</button>
         <button class="filled-button" [routerLink]="'/registration'">Зареєстуватись</button>
       </div>
   </div>

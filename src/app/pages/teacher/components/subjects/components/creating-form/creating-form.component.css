@@ -1,0 +1,180 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  width: 320px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.input-title{
+  font-size: 13px;
+  font-weight: 500;
+  margin: 5px;
+}
+
+input[type="text"] {
+  margin-top: 2px;
+  padding: 5px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ok-button{
+  margin-top: 15px;
+}
+
+.button-container button {
+ width: 80px;
+  margin-top: 15px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Відступ між кнопками */
+  margin-top: 15px;
+}
+
+.first-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px; /* Простір зверху */
+}
+
+.subject-title {
+  font-weight: bold;
+  font-size: 24px;
+  position: absolute;
+  top: 40px; /* Розташовує заголовок у верхній частині контейнера */
+  left: 50%;
+  transform: translateX(-50%); /* Центрує заголовок горизонтально */
+  margin: 0; /* Прибирає зовнішній відступ */
+  text-align: center;
+}
+
+
+.dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 200px; /* Ширина dropdown */
+}
+
+/* Основні стилі для dropdown */
+.dropdown {
+  appearance: none; /* Вимикає стандартну стилізацію браузера */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff; /* Білий фон */
+  color: #333; /* Темно-сірий текст */
+  border: 2px solid #333; /* Чорна обводка */
+  border-radius: 5px; /* Округлені кути */
+  padding: 5px 10px; /* Внутрішні відступи */
+  font-size: 13px; /* Розмір шрифту */
+  cursor: pointer; /* Курсор при наведенні */
+  width: 200px; /* Ширина dropdown */
+  transition: all 0.3s ease; /* Плавний перехід */
+  position: relative; /* Для трикутника */
+}
+
+/* Додаємо трикутник справа */
+.dropdown-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px; /* Відступ справа для позиціонування */
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #333; /* Чорний колір трикутника */
+  pointer-events: none; /* Щоб не заважав клікам */
+}
+
+/* Стилі для опцій */
+.dropdown option {
+  background-color: #fff; /* Білий фон для опцій */
+  color: #333; /* Темно-сірий текст */
+  padding: 4px;
+}
+
+/* Зміни для focus (коли елемент активний) */
+.dropdown:focus {
+  outline: none; /* Знімає стандартну обводку */
+  border-color: #000; /* Чорна обводка */
+}
+
+/* Для додаткового стилю при hover */
+.dropdown:hover {
+  border-color: #282828; /* Світліша обводка при наведенні */
+}
+
+/* Стилі для option, якщо dropdown у стані вибору */
+.dropdown:invalid {
+  color: #aaa; /* Світло-сірий текст для опції по замовчуванню */
+}
+
+.list{
+  border: 2px #2f2f2f solid;
+  padding: 6px;
+  border-radius: 5px;
+  background: #ffffff;
+  overflow-y: auto;
+  max-height: 130px;
+  font-size: 12px;
+  width: 64%;
+  margin-top: 20px;
+}
+
+.list ul {
+  list-style-type: none; /* Прибирає маркери списку */
+  padding: 0; /* Відміняє внутрішні відступи */
+  margin: 0; /* Відміняє зовнішні відступи */
+}
+
+.list li {
+  display: flex; /* Встановлює flex-контейнер для відстані між елементами */
+  justify-content: space-between; /* Розподіляє назву групи та кнопку по краях */
+  align-items: center; /* Вирівнює елементи по вертикалі */
+  padding: 4px 0; /* Відстань між рядками */
+}
+
+.list li button {
+  margin-left: 10px; /* Відстань між назвою групи і кнопкою */
+  width: 25px;
+}
+
+
+.list::-webkit-scrollbar {
+  width: 5px; /* Ширина скролу */
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: #3f3d3d; /* Колір скролу */
+  border-radius: 4px; /* Округлені краї */
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa; /* Колір скролу при наведенні */
+}

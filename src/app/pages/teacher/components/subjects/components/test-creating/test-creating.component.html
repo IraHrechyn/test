@@ -1,0 +1,15 @@
+<div *ngIf="!isFirstStepCompleted || isEditing">
+  <app-first-step
+    [isEditing]="isEditing"
+    [selectedTest]="selectedTest"
+    (firstStepComplete)="onFirstStepComplete()">
+  </app-first-step>
+</div>
+
+<div *ngIf="isFirstStepCompleted || isEditing">
+  <app-second-step
+    [isEditing]="isEditing"
+    [selectedTest]="selectedTest"
+    (backToFirstStep)="onBackToFirstStep()">
+  </app-second-step>
+</div>

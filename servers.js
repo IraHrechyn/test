@@ -1,14 +1,52 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const teacherRoutes = require('./src/app/backend/routes/teacher-routes');
+const index = require("./src/index");
+const debug = require("debug")("node-angular");
+const http = require("http");
 
-const app = express();
+const normalizePort = val => {
+  let port = parseInt(val, 10);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
 
-app.use('/api/teacher', teacherRoutes);
+  if (port >= 0) {
+    // port number
+    return port;
+  }
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+  return false;
+};
+
+const onError = error => {
+  if (error.syscall !== "listen") {
+    throw error;
+  }
+  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  switch (error.code) {
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
+      process.exit(1);
+      break;
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+};
+
+const onListening = () => {
+  const addr = server.address();
+  const bind = typeof port === "string" ? "pipe " + port : "port " + port;
+  debug("Listening on " + bind);
+};
+
+const port = normalizePort(process.env.PORT || "3000");
+// index.set("port", port);
+
+const server = http.createServer(index);
+server.on("error", onError);
+server.on("listening", onListening);
+server.listen(port);

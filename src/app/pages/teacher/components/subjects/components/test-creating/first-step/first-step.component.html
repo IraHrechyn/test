@@ -1,0 +1,64 @@
+<div class="container">
+  <p class="step-title">
+    Крок 1. Налаштування тесту
+  </p>
+
+  <div class="content-container" >
+    <div class="column">
+      <div class="first-column">
+        <div class="form-group">
+          <label class="label-inputs" for="testName">Вкажіть назву тесту:</label>
+          <input class="inputs weight" id="testName" type="text" [(ngModel)]="testName" />
+        </div>
+        <div class="form-group">
+          <label class="label-inputs" for="testName">Вкажіть тривалість тесту:</label>
+          <div class="time-inputs">
+            <input class="time-weight time-input" type="number" placeholder="Години" [(ngModel)]="duration.hours" min="00" max="23" />
+            <p class="label-inputs">:</p>
+            <input class="time-weight time-input" type="number" placeholder="Хвилини" [(ngModel)]="duration.minutes" min="00" max="59" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label-inputs" for="testName">Вкажіть кількість спроб:</label>
+          <input class="inputs weight" id="max_attempts" type="number" [(ngModel)]="max_attempts" />
+        </div>
+      </div>
+
+      <div class="second-column">
+        <div class="date-group">
+          <div class="form-group">
+            <label class="label-inputs" for="openDate">Дата відкриття:</label>
+            <input class="data-input weight" id="openDate" type="date" [(ngModel)]="openDate" (change)="onDateChange()" [min]="today" />
+          </div>
+          <div class="form-group">
+            <label class="label-inputs" for="closeDate">Дата закриття:</label>
+            <input class="data-input weight" id="closeDate" type="date" [(ngModel)]="closeDate" (change)="onDateChange()" [min]="today" />
+          </div>
+        </div>
+<!--        <div class="time-group" *ngIf="!closeDate">      -->
+          <div class="time-group">
+          <label class="label-inputs">Вкажіть тривалість тесту</label>
+          <div class="row">
+            <div class="time-inputs">
+              <p class="label-inputs">від</p>
+              <input class="time-weight time-input" type="number" placeholder="Години" [(ngModel)]="openTime.hours" min="0" max="23" />
+              <p class="label-inputs">:</p>
+              <input class="time-weight time-input" type="number" placeholder="Хвилини" [(ngModel)]="openTime.minutes" min="0" max="59" />
+            </div>
+            <div class="time-inputs">
+              <p class="label-inputs">до</p>
+              <input class="time-weight time-input" type="number" placeholder="Години" [(ngModel)]="closeTime.hours" min="0" max="23" />
+              <p class="label-inputs">:</p>
+              <input class="time-weight time-input" type="number" placeholder="Хвилини" [(ngModel)]="closeTime.minutes" min="0" max="59" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons" *ngIf="!isEditing">
+      <button class="back-button empty-button" (click)="goBack()">Назад</button>
+      <button class="next-button filled-button" (click)="goNext()" [disabled]="!isFormValid()">Далі</button>
+    </div>
+  </div>
+</div>

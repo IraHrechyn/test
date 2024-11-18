@@ -1,0 +1,115 @@
+/* Основний контейнер для предметів */
+.edit-subject-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 1000;
+  width: 400px;
+  height: 400px;
+}
+
+.inputs {
+  margin-top: 15px;
+  padding: 6px;
+  width: 70%;
+  border: 2px solid #282828;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.groups-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 7px;
+  border: 2px solid #2f2f2f;
+  max-height: 200px;
+  overflow: auto;
+  margin-top: 10px;
+  width: 72%;
+}
+
+.groups-list::-webkit-scrollbar {
+  width: 5px; /* Ширина скролу */
+}
+
+.groups-list::-webkit-scrollbar-thumb {
+  background-color: #3f3d3d; /* Колір скролу */
+  border-radius: 4px; /* Округлені краї */
+}
+
+.groups-list::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa; /* Колір при наведенні */
+}
+
+
+.group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Важливо для розділення назв груп та кнопок */
+  margin: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.group-name{
+  font-size: 14px;
+}
+
+.edit-subject-form .groups-list .group-item .buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px; /* Відступ зверху для кнопок */
+}
+
+
+button {
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+
+.buttons{
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.check-btn.checked {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+}
+
+.cross-btn.unchecked {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+}
+
+.check-btn:not(.checked) {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+}
+
+.cross-btn:not(.unchecked) {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+}
+
+.text{
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 15px;
+  text-align: left;
+  left: 0;
+}

@@ -1,3 +1,4 @@
+
 <div class="entrance-container">
   <pages-header></pages-header>
 
@@ -13,24 +14,30 @@
 
     <div class="entrance-form">
       <div class="entrance-form-content container-border">
-        <form>
+        <form [formGroup]="entranceForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Введіть Ваше прізвище та ім'я</label>
-            <input type="text" id="name" name="name" class="form-input">
+            <input type="text" id="name" formControlName="name" class="form-input">
+            <div *ngIf="entranceForm.get('name')?.invalid && entranceForm.get('name')?.touched">
+              <small class="error-text">Це поле є обов'язковим</small>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="password">Введіть Ваш пароль</label>
-            <input type="password" id="password" name="password" class="form-input">
+            <input type="password" id="password" formControlName="password" class="form-input">
+            <div *ngIf="entranceForm.get('password')?.invalid && entranceForm.get('password')?.touched">
+              <small class="error-text">Пароль повинен містити мінімум 6 символів</small>
+            </div>
           </div>
 
-          <button [routerLink]="'/app-teacher'" type="submit" class="filled-button">Увійти</button>
+          <button type="submit" class="filled-button" [disabled]="entranceForm.invalid">Увійти</button>
         </form>
       </div>
     </div>
 
     <div class="scenery">
-      <img class="green-ball" src="assets/green-ball.png" alt="green-ball"/>\
+      <img class="green-ball" src="assets/green-ball.png" alt="green-ball"/>
     </div>
   </div>
 </div>

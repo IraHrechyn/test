@@ -22,13 +22,17 @@ const getTeacherById = async (req, res) => {
 };
 
 const addTeacher = async (req, res) => {
+  console.log( res, req.body);
   try {
+    console.log('Request body:', req.body);
     const newTeacher = await teacherRepository.addTeacher(req.body);
     res.status(201).json(newTeacher);
   } catch (error) {
+    console.error('Error adding teacher:', error);
     res.status(500).json({ message: 'Failed to create teacher.' });
   }
 };
+
 
 const updateTeacher = async (req, res) => {
   try {

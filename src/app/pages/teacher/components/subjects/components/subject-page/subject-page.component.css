@@ -1,0 +1,155 @@
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 55px;
+}
+
+.group-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  height: 86vh;
+  overflow-x: hidden;
+}
+
+.content {
+  width: 100%;
+  text-align: center;
+}
+
+.title {
+  font-size: 50px;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Position the green ball correctly */
+.scenery-left {
+  position: relative;
+  z-index: 9;
+}
+
+.green-ball {
+  height: 350px;
+  width: 350px;
+  position: absolute;
+  top: 240px;
+  left: -150px;
+  z-index: 5;
+}
+
+/* Position the pink ball correctly */
+.scenery-right {
+  position: relative;
+}
+
+.pink-ball {
+  height: 130px;
+  width: 130px;
+  position: absolute;
+  bottom: 350px;
+  right: 0;
+}
+
+
+.tests-container {
+  height: auto;
+  width: 80%;
+  display: flex;
+  margin: 30px auto;
+  z-index: 10; /* Встановлюємо більше значення z-index */
+  position: relative;
+justify-content: center;
+  align-items: center;
+}
+
+.test-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.test-item {
+  color: #FFFCFC;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  height: 190px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.test-item h4 {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  margin: 0;
+}
+
+.test-item h3 {
+  margin: 10px 0;
+}
+
+.test-item p {
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+.test-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.test-item button {
+  margin-top: 10px;
+}
+
+.subject-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.ellipsis {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.menu {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu span {
+  cursor: pointer;
+  padding: 5px;
+  text-align: left;
+  color: #2f2f2f;
+  font-size: 11px;
+}
+
+.menu span:hover {
+  background-color: #f1f1f1;
+}

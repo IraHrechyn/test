@@ -1,0 +1,74 @@
+<div *ngIf="selectedTest">
+  <h2>{{ selectedTest!.test_name }}</h2>
+  <div>
+    <p>Time Remaining: {{ formattedTime }}</p>
+  </div>
+
+  <!-- Question Number Circles -->
+  <div class="question-nav">
+    <button
+      *ngFor="let question of questions; let i = index"
+      (click)="goToQuestion(i)"
+      [class.active]="i === currentQuestionIndex"
+      class="question-circle">
+
+      {{ i + 1 }}
+    </button>
+  </div>
+
+  <div *ngIf="questions.length > 0">
+    <div *ngIf="currentQuestionIndex < questions.length">
+      <div>
+        <p>{{ questions[currentQuestionIndex].question_text }}</p>
+
+        <!-- Виведення варіантів відповідей та збереження вибору -->
+        <div *ngFor="let option of questions[currentQuestionIndex].options; let j = index">
+          <!-- Якщо тест multiple, використовуємо чекбокси, інакше радіокнопки -->
+          <input
+            *ngIf="questions[currentQuestionIndex].type === 'multiple'"
+            type="checkbox"
+            [name]="'question' + currentQuestionIndex"
+            [value]="option"
+            [checked]="(selectedAnswers[currentQuestionIndex] || []).includes(option)"
+            (change)="onMultipleAnswerChange(currentQuestionIndex, option)">
+          {{ option }}
+
+          <input
+            *ngIf="questions[currentQuestionIndex].type === 'single'"
+            type="radio"
+            [name]="'question' + currentQuestionIndex"
+            [value]="option"
+            [(ngModel)]="selectedAnswers[currentQuestionIndex]"
+            (ngModelChange)="outside($event)">
+          {{ option }}
+        </div>
+
+        <!-- Виведення вибраної відповіді -->
+        <p *ngIf="selectedAnswers[currentQuestionIndex]">
+          <strong>Вибрана відповідь:</strong> {{ selectedAnswers[currentQuestionIndex] }}
+        </p>
+      </div>
+
+      <div class="pagination">
+        <button (click)="prevQuestion()" [disabled]="currentQuestionIndex === 0">Previous</button>
+        <button (click)="nextQuestion()" [disabled]="currentQuestionIndex === questions.length - 1">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="questions.length === 0">
+    <p>No questions available for this test.</p>
+  </div>
+
+  <app-results-modal
+    [score]="score"
+    [totalQuestions]="totalQuestions"
+    [hasOpenAnswers]="hasOpenAnswers"
+    [openAnswers]="openAnswers"
+    [isVisible]="isModalVisible"
+    (close)="closeResultModal()">
+  </app-results-modal>
+
+  <!-- Other content for your test form or questions -->
+  <button (click)="calculateScore()">Завершити тест</button>
+</div>

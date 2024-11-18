@@ -1,0 +1,19 @@
+<div class="modal" *ngIf="isVisible">
+  <div class="modal-content">
+    <h2>Результат тесту</h2>
+    <p><strong>Ваша оцінка: </strong>{{ score }} з {{ totalQuestions }}</p>
+
+    <div *ngIf="hasOpenAnswers">
+      <h3>Відкриті відповіді:</h3>
+      <ul>
+        <li *ngFor="let answer of openAnswers">
+          <strong>{{ answer.question }}</strong>: {{ answer.answer }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal-buttons">
+      <button (click)="close()">Закрити</button>
+    </div>
+  </div>
+</div>

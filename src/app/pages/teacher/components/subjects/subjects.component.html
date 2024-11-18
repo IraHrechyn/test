@@ -1,3 +1,56 @@
 <div class="subject-container">
 
+  <div class="blur-background" *ngIf="showForm"></div>
+
+  <div class="form-container">
+    <div class="form">
+      <div class="content" (click)="addSubject()">
+        <img src="assets/add-button.png" alt="add-button">
+        <p>Натисніть, щоб додати предмет</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subjects-list">
+    <div  *ngFor="let subject of subjects; index as i" class="subject-item"  [ngStyle]="{'background-color': getBackgroundColor(i)}">
+
+      <div class="blur-background" *ngIf="showForm || showEditForm"></div>
+
+
+
+
+        <h3 (click)="openSubjectPage(subject, getBackgroundColor(i))">{{ subject.subject_name }}</h3>
+        <p class="title-group">{{ groupNamesBySubjectId[subject.id]?.join(', ') }}</p>
+        <div class="subject-actions">
+          <span class="ellipsis" (click)="toggleMenu(i)">⋮</span>
+          <div class="menu" *ngIf="activeMenuIndex === i">
+            <span (click)="editSubject(i)">Редагувати</span>
+            <span (click)="deleteSubject(i)">Видалити</span>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+
+
+  <subject-creating-form
+    *ngIf="showForm"
+    [teacherId]="teacherId"
+    (formClosed)="closeForm()"
+    (subjectCreated)="onCreated($event)">
+  </subject-creating-form>
+
+  <div *ngIf="showEditForm" class="edit-form-overlay">
+    <app-edit-subject-form
+      *ngIf="showEditForm"
+      [teacherId]="teacherId"
+      [subjectId]="subjects[editModeIndex!].id"
+      [subjectName]="newSubjectName"
+      [groupIds]="newGroupIds"
+      (formClosed)="cancelEdit()"
+      (subjectUpdated)="updateSubject(editModeIndex!, $event)"
+    ></app-edit-subject-form>
+  </div>
+
 </div>

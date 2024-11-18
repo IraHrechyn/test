@@ -1,0 +1,43 @@
+<div *ngIf="subject">
+  <div class="header">
+    <pages-header></pages-header>
+    <div class="buttons">
+      <!--      <button class="filled-button space-between-buttons" (click)="toggleSettings()">Налаштування</button>-->
+      <!--      <button [routerLink]="'/main-page'" class="empty-button">Вийти</button>-->
+    </div>
+  </div>
+  <div class="subject-container">
+    <div class="scenery-left">
+      <img class="green-ball" src="assets/green-ball.png" alt="green-ball" />
+    </div>
+    <div class="content">
+      <h1 class="title">{{ subject.subject_name }}</h1>
+      <button class="filled-button" (click)="toggleTestCreatingForm()" *ngIf="!testService.visibleTestForm">Додати новий тест</button>
+      <app-test-creating *ngIf="testService.visibleTestForm"></app-test-creating>
+
+      <div class="tests-container" *ngIf="!testService.visibleTestForm">
+        <div class="test-items">
+          <div class="test-item" *ngFor="let test of tests; let i = index" [ngStyle]="{'background-color': subjectColor}">
+            <h4>Тест {{ i + 1 }}</h4>
+            <div class="subject-actions">
+              <span class="ellipsis" (click)="toggleMenu(i)">⋮</span>
+              <div class="menu" *ngIf="activeMenuIndex === i">
+                <span (click)="editTest(test)">Редагувати</span>
+                <span (click)="deleteTest(i)">Видалити</span>
+              </div>
+            </div>
+            <h3>{{ test.test_name }}</h3>
+            <p class="test-status">
+              <span>{{ getTestStatus(test)[0] }}</span>
+              <span>{{ getTestStatus(test)[1] }}</span>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    <div class="scenery-right">
+      <img class="pink-ball" src="assets/pink-ball.png" alt="pink-ball" />
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,15 @@
+<div>
+  <h1>{{ subjectName }} (ID: {{ subjectId }})</h1>
+
+  <h2>Tests:</h2>
+  <ul>
+    <li *ngFor="let test of tests">
+      <button (click)="onTestClick(test)"><strong>{{ test.test_name }}</strong> (ID: {{ test.id }})</button>
+    </li>
+  </ul>
+
+  <!-- If no tests, display a message -->
+  <div *ngIf="tests.length === 0">
+    <p>No tests available for this subject.</p>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink} from "@angular/router";
+import {DataService} from "../../registration/services/data.service";
 
 @Component({
   selector: 'main-content',
@@ -11,5 +12,9 @@ import {RouterLink} from "@angular/router";
   styleUrls: ['./content.component.css', '../../../styles/buttons.css']
 })
 export class ContentComponent {
+  constructor(public data: DataService) {}
 
+  setVisible(){
+    this.data.entrance.visibleEntrance = true;
+  }
 }

@@ -1,0 +1,44 @@
+<div class="group-detail-background" *ngIf="group"></div>
+
+<div class="group-detail-container">
+  <button class="close-button" (click)="closeDetails()">✖</button>
+  <h2 class="group-title" *ngIf="!isEditing">{{ group.group_name }}</h2>
+  <input class="inputs group-title" *ngIf="isEditing" [(ngModel)]="group.group_name" placeholder="Назва групи" />
+
+  <div class="student-list">
+    <ol>
+      <li *ngFor="let student of group.students_id; let i = index" class="student-item">
+        {{ i + 1 }}. {{ studentService.studentNames(student) }}
+        <button *ngIf="isEditing" class="but" (click)="removeStudent(student)">
+          -
+        </button>
+      </li>
+    </ol>
+  </div>
+
+  <div *ngIf="isEditing" class="add-student">
+
+    <div *ngIf="isAddingStudent" class="student-search">
+      <p class="hint-text">Вкажіть ім'я студента чи його email, якого хочете додати до групи </p>
+      <input class="search-input inputs" type="text" [(ngModel)]="studentSearchQuery" placeholder="Знайдіть студента за іменем чи email" />
+
+      <div *ngIf="filteredStudents.length > 0" class="search-results">
+        <div *ngFor="let student of filteredStudents" class="student-item">
+          <span class="student-name">{{ student.full_name }} ({{ student.email }})</span>
+          <button class="but" (click)="selectStudent(student)">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="group-actions"> <button *ngIf="!isEditing" class="empty-button" (click)="editGroup()">Редагувати групу</button>
+    <button *ngIf="!isEditing" class="filled-button" (click)="confirmDeleteGroup()">Видалити групу</button>
+    <button *ngIf="isEditing" class="filled-button" (click)="saveGroup()">Готово</button>
+  </div>
+</div>
+
+<confirm-dialog
+  *ngIf="showConfirmDialog"
+  (confirmed)="deleteGroup()"
+  (cancelled)="cancelDelete()">
+</confirm-dialog>

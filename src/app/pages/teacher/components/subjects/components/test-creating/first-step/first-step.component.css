@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  padding: 20px;
+  text-align: left;
+}
+
+.content-container {
+  padding: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.step-title {
+  text-align: left;
+  width: 100%;
+  font-weight: 780;
+}
+
+.completed {
+  color: gray; /* Сірий колір для заголовка */
+}
+
+.checkmark {
+  color: gray; /* Сірий колір для галочки */
+  margin-right: 5px; /* Відстань між галочкою та текстом */
+}
+
+.first-column,
+.second-column {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: start;
+  width: 100%;
+}
+
+.inputs {
+  width: 70%;
+  margin: 5px 0 10px 0;
+  padding-left: 5px;
+}
+
+.label-inputs {
+  font-size: 12px;
+  font-weight: 650;
+  text-align: left;
+}
+
+.weight {
+  border: 3px #2f2f2f solid;
+  border-radius: 4px;
+  height: 27px;
+}
+
+.time-weight{
+  border: 3px #2f2f2f solid;
+  border-radius: 4px;
+  height: 22px;
+}
+
+.date-group {
+  display: flex;
+  justify-content: start;
+  margin-right: 15px;
+  width: 60%;
+}
+
+.time-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.data-input{
+  margin: 5px 0 10px 0;
+  padding: 3px;
+}
+
+.row {
+  display: flex;
+  align-items: center; /* Центрує інпути та текст вертикально */
+}
+
+.time-inputs {
+  display: flex;
+  align-items: center; /* Центрує текст і поля вводу */
+  gap: 5px; /* Відстань між текстом та інпутами */
+  margin:10px 10px 0 0;
+}
+
+.label-inputs {
+  font-size: 12px;
+  font-weight: 650;
+  text-align: left; /* Залишаємо вирівнювання вліво */
+}
+
+.time-input{
+  padding: 3px;
+}
+
+
+
+
+.buttons {
+  display: flex;
+  justify-content: flex-end; /* Вирівнює кнопки справа */
+  margin-top: 20px; /* Відстань від контенту */
+}
+
+.back-button,
+.next-button {
+  margin-left: 10px; /* Відстань між кнопками */
+}
+
+.column{
+  display: flex;
+  gap: 40px;
+}

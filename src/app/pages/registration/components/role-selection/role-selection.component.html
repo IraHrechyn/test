@@ -29,7 +29,7 @@
       </div>
       <button
         class="continue-button filled-button"
-        [routerLink]="data.role.selectedRole ? '/data-filling' : null"
+        [routerLink]="data.role.selectedRole ? routes() : null"
         [disabled]="!data.role.selectedRole">
         Далі
       </button>

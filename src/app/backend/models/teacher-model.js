@@ -1,6 +1,6 @@
-// models/teacher.js
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const { v4: uuidv4 } = require('uuid'); // Import the UUID library
 
 class Teacher extends Model {}
 
@@ -8,8 +8,8 @@ Teacher.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
+      unique: true,
+      primaryKey: true
     },
     name: {
       type: DataTypes.STRING,
@@ -29,7 +29,7 @@ Teacher.init(
     sequelize,
     modelName: 'Teacher',
     tableName: 'teachers',
-    timestamps: true, // Enables createdAt and updatedAt fields
+    timestamps: true,
   }
 );
 
